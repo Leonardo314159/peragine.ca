@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Print Pricing Calculator</title>
+  <script src="calculatormath.js" defer></script>
+</head>
+<body>
+  <h1>3D Print Pricing Calculator</h1>
+
+  <p>Inputs (no CSS, just vibes):</p>
+
+  <label>
+    Print time (hours):
+    <input id="printTime" type="number" min="0" step="0.1" value="0" />
+  </label>
+  <br/>
+  <label>
+    Material used (grams):
+    <input id="grams" type="number" min="0" step="1" value="0" />
+  </label>
+  <br/>
+  <label>
+    Post-processing time (hours):
+    <input id="postTime" type="number" min="0" step="0.1" value="0" />
+  </label>
+  <br/>
+  <label>
+    Urgency level (0–3):
+    <input id="urgency" type="number" min="0" max="3" step="1" value="0" />
+  </label>
+
+  <h2>Price</h2>
+  <div id="output"></div>
+</body>
+</html>
