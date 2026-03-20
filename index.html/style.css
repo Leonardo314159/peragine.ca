@@ -1,4 +1,3 @@
-
 /* Reset and base styles */
 * {
   margin: 0;
@@ -25,6 +24,7 @@ header {
   color: white;
   padding: 2rem 0;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
@@ -147,4 +147,74 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+/* --- Election Notice Box --- */
+#election-notice-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 0;
+}
+
+/* 1. The Pulse Animation Definition */
+@keyframes pulse-border-colors {
+  0% { 
+    border-color: #fbd66d; 
+    box-shadow: 10px 10px 0px #000000; 
+  }
+  50% { 
+    border-color: #df9ffb; 
+    box-shadow: 10px 10px 25px #fbd66d(0, 0, 0, 0.6); 
+  }
+  75% { 
+    border-color: #fbd66d; 
+    box-shadow: 10px 10px 0px #df9ffb; 
+  }
+  100%{
+    border-color: #fbd66d; 
+    box-shadow: 10px 10px 0px #140c18; 
+  }
+}
+
+.election-notice {
+  background-color: #ffffff;
+  border: 6px dashed #222222; 
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 600px;
+  text-align: center;
+  color: #222222;
+  display: block;
+  position: relative;
+  /* 2. Apply Pulse here */
+  animation: pulse-border-colors 2s linear infinite;
+}
+
+/* 3. The Bouncy Pop Button */
+.notice-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #222222; /* Black background */
+  color: #fbd66d;           /* Yellow text */
+  text-decoration: none;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.3rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 0px #000;
+  cursor: pointer;
+}
+
+.notice-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-color: #fbd66d;
+  color: #222222;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.notice-button:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 2px 0px #000;
 }
