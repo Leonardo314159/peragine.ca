@@ -1,0 +1,149 @@
+:root {
+  --yellow: #fbd66d;
+  --lavender: #df9ffb;
+  --black: #222222;
+  --white: #ffffff;
+  
+  /* Initial State: Yellow Background */
+  --bg: var(--yellow);
+  --text: var(--black);
+  --hero-bg: var(--lavender);
+  --card-border: var(--black);
+  --btn-bg: var(--yellow);
+  --btn-text: var(--lavender);
+  --vote-btn-text: #810000;
+}
+
+body.dark-mode {
+  /* Flipped State: Lavender Background */
+  --bg: var(--lavender);
+  --text: var(--black);
+  --hero-bg: var(--yellow);
+  --card-border: var(--black);
+  --btn-bg: var(--lavender);
+  --btn-text: var(--yellow);
+  --vote-btn-text: #da0000;
+  --white: #f5f5f5; /* Slight off-white for contrast */
+}
+
+body {
+  font-family: 'Anton', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+header { text-align: center; padding: 40px 0; }
+header h1 { font-size: 3.5rem; letter-spacing: 2px; color: var(--black); }
+
+.back-link { color: var(--black); text-decoration: none; font-weight: bold; }
+
+/* Campaign Hero - Swaps between Lavender and Yellow */
+.campaign-hero {
+  background-color: var(--hero-bg) !important;
+  border: 5px dashed var(--black);
+  padding: 40px;
+  text-align: center;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.vote-button {
+  display: inline-block;
+  background: var(--btn-bg);
+  color: var(--vote-btn-text);
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  /* This creates the high-contrast outline you were looking for */
+  border: 3px solid var(--btn-text); 
+  transition: all 0.2s ease;
+}
+
+.vote-button:hover { 
+  transform: scale(1.05);
+  background: var(--btn-text);
+  color: var(--btn-bg);
+}
+
+/* Platform Cards */
+.platform-card {
+  background: var(--white);
+  border: 3px solid var(--card-border);
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* --- Toggle Switch Fix --- */
+.toggle-container { position: absolute; top: 20px; right: 20px; }
+.toggle-switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider { 
+  position: absolute; 
+  cursor: pointer; 
+  top: 0; left: 0; right: 0; bottom: 0; 
+  background-color: var(--black); /* Black base for the toggle track */
+  border: 2px solid var(--text); /* Outline that changes color */
+  border-radius: 34px; 
+  transition: .4s; 
+}
+
+.slider:before { 
+  position: absolute; 
+  content: ""; 
+  height: 16px; width: 16px; 
+  left: 3px; bottom: 3px; 
+  background-color: var(--yellow); /* Initial circle color */
+  border-radius: 50%; 
+  transition: .4s; 
+}
+
+/* When flipped to Lavender mode */
+input:checked + .slider:before { 
+  transform: translateX(26px); 
+  background-color: var(--lavender); 
+}
+
+/* --- The Countdown Box (Flipped Hero Style) --- */
+.countdown-container {
+  background-color: var(--bg) !important; /* Uses page bg color */
+  border: 4px dashed var(--hero-bg); /* Uses the opposite color for the dash */
+  padding: 15px;
+  display: inline-block;
+  margin: 20px 0;
+  border-radius: 15px;
+  min-width: 280px;
+}
+
+#countdown-label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+#countdown {
+  font-size: 2rem;
+  color: var(--text);
+  font-family: 'Anton', sans-serif;
+}
+
+/* --- The Pulse Animation --- */
+/* This uses your --vote-btn-text variable for the glow */
+@keyframes pulse-glow {
+  0% { transform: scale(1); box-shadow: 0 0 0 0px var(--vote-btn-text); }
+  70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(0, 0, 0, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0px rgba(0, 0, 0, 0); }
+}
+
+.pulse {
+  animation: pulse-glow 2s infinite;
+  display: inline-block; /* Required for transform animations */
+}
