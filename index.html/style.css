@@ -149,7 +149,12 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* --- Election Notice Box --- */
+
+/*  
+
+----- DEPRECATED - KEEPING FOR LEGACY & MEMORIEZ LOL
+
+--- Election Notice Box --- 
 #election-notice-wrapper {
   display: flex;
   justify-content: center;
@@ -157,7 +162,7 @@ input:checked + .slider:before {
   padding: 40px 0;
 }
 
-/* 1. The Pulse Animation Definition */
+ 1. The Pulse Animation Definition 
 @keyframes pulse-border-colors {
   0% { 
     border-color: #fbd66d; 
@@ -187,17 +192,17 @@ input:checked + .slider:before {
   color: #222222;
   display: block;
   position: relative;
-  /* 2. Apply Pulse here */
+   2. Apply Pulse here 
   animation: pulse-border-colors 2s linear infinite;
 }
 
-/* 3. The Bouncy Pop Button */
+3. The Bouncy Pop Button 
 .notice-button {
   display: inline-block;
   margin-top: 20px;
   padding: 15px 30px;
-  background-color: #222222; /* Black background */
-  color: #fbd66d;           /* Yellow text */
+  background-color: #222222; 
+  color: #fbd66d;           
   text-decoration: none;
   font-family: 'Anton', sans-serif;
   font-size: 1.3rem;
@@ -218,3 +223,5 @@ input:checked + .slider:before {
   transform: translateY(2px) scale(0.98);
   box-shadow: 0 2px 0px #000;
 }
+
+*/
